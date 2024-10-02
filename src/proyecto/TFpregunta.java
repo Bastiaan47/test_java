@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author pedro
+ * @author pedro & bastiaan
  */
 public class TFpregunta extends Pregunta{
     boolean respuesta;
@@ -35,18 +35,14 @@ public class TFpregunta extends Pregunta{
         }while(caracterRespuesta != 'f' && caracterRespuesta != 'F' && caracterRespuesta != 't' && caracterRespuesta != 'T');
         
         //teclado.close();
-        
-        if(caracterRespuesta == 'f' || caracterRespuesta == 'F'){
-            if(!this.respuesta){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            if(!this.respuesta){
-                return false;
-            }else{
-                return true;
+        boolean respuestaUsuario= (caracterRespuesta == 'f' || caracterRespuesta == 'F'); 
+        if (respuestaUsuario == this.respuesta) {
+            System.out.println("buena respuesta");
+            return true;
+        } else {
+            System.out.println("mala respuesta");
+            return false;
+   
             }
         }        
     }
