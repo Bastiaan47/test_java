@@ -20,34 +20,20 @@ public class TFpregunta extends Pregunta{
     }
     
     @Override
-    boolean buscar(){
-        String respuestaUsuario = "hola";
-        char caracterRespuesta = 'c';
-        Scanner teclado = new Scanner(System.in);
-
+   public boolean buscar(){
+        Scanner teclado= new Scanner(System.in);
+        String respuestaUsuario;
+        char caracterRespuesta;
         System.out.println(super.text);
         do{
             System.out.println("Ingrese su respuesta: f | F | t | T :\n");
-            respuestaUsuario = teclado.next();
-            //teclado.nextLine();
-            caracterRespuesta = respuestaUsuario.charAt(0);
-            
-        }while(caracterRespuesta != 'f' && caracterRespuesta != 'F' && caracterRespuesta != 't' && caracterRespuesta != 'T');
-        
-        //teclado.close();
-        
-        if(caracterRespuesta == 'f' || caracterRespuesta == 'F'){
-            if(!this.respuesta){
-                return true;
-            }else{
-                return false;
-            }
-        }else{
-            if(!this.respuesta){
-                return false;
-            }else{
-                return true;
-            }
-        }        
+            respuestaUsuario= teclado.next();
+            caracterRespuesta= respuestaUsuario.charAt(0);
+        }while(caracterRespuesta != 'f' && caracterRespuesta != 'F' && 
+                 caracterRespuesta != 't' && caracterRespuesta != 'T');
+        teclado.close();
+        //comparar respuestas
+        boolean esFalso= caracterRespuesta == 'f' || caracterRespuesta == 'F';
+        return esFalso == !this.respuesta;      
     }
 }
